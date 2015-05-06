@@ -171,6 +171,18 @@
                         <version>3.0.1</version>
                         <scope>provided</scope>
                 </dependency>
+	 <dependency>
+	  <groupId>com.google.code.gson</groupId>
+	  <artifactId>gson</artifactId>
+	  <version>2.3.1</version>
+	  <type>jar</type>
+	 </dependency>
+	 <dependency>
+	  <groupId>com.google.guava</groupId>
+	  <artifactId>guava</artifactId>
+	  <version>18.0</version>
+	  <type>jar</type>
+	 </dependency>
 	</dependencies>
 
 	<build>
@@ -225,7 +237,7 @@
 						</goals>
 					</execution>
 					<execution>
-						<id>build-forth</id>
+						<id>build-fourth</id>
 						<configuration>
 							<mainClass>org.transitime.applications.GtfsFileProcessor</mainClass>
 							<attachToBuild>true</attachToBuild>
@@ -242,7 +254,7 @@
 							<mainClass>org.transitime.applications.RmiQuery</mainClass>
 							<attachToBuild>true</attachToBuild>
 							<classifier>onejar</classifier>
-							<filename>RmiQeury.jar</filename>
+							<filename>RmiQuery.jar</filename>
 						</configuration>
 						<goals>
 							<goal>one-jar</goal>
