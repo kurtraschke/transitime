@@ -96,7 +96,7 @@ public class HrtBusAvlModule extends PollUrlAvlModule {
     private final String direction;
     private final String stop;
 
-    private static Date makeTimestamp(String date, String time) {
+    private static Date makeTimestamp(String time, String date) {
       TimeZone tz = TimeZone.getTimeZone("US/Eastern");
       String[] dateParts = date.split("/");
       String[] timeParts = time.split(":");
@@ -120,7 +120,7 @@ public class HrtBusAvlModule extends PollUrlAvlModule {
 
       return new Location(
               (((double) Integer.parseInt(positionParts[0], 10)) / 10000000),
-              (((double) Integer.parseInt(positionParts[0], 10)) / 10000000)
+              (((double) Integer.parseInt(positionParts[1], 10)) / 10000000)
       );
     }
 
@@ -133,7 +133,7 @@ public class HrtBusAvlModule extends PollUrlAvlModule {
       this.adherenceValid = (csvColumns[6].equals("V"));
 
       if (csvColumns.length == 10) {
-        this.route = csvColumns[7];
+        this.route = String.format("%03d", Integer.parseInt(csvColumns[7]));;
         this.direction = csvColumns[7];
         this.stop = csvColumns[7];
       } else {
